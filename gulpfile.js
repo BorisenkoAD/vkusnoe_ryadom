@@ -8,7 +8,8 @@ var gulp          = require('gulp'),
 		rename        = require('gulp-rename'),
 		autoprefixer  = require('gulp-autoprefixer'),
 		notify        = require("gulp-notify"),
-		rsync         = require('gulp-rsync');
+		rsync         = require('gulp-rsync'),
+		ftp 		  = require( 'vinyl-ftp' );
 
 // Scripts concat & minify
 
@@ -58,14 +59,38 @@ gulp.task('rsync', function() {
 	.pipe(rsync({
 		root: 'app/',
 		hostname: 'root@77.244.220.168',
-		destination: '/tmp/share/',
-		include: ['*.htaccess'], // Includes files to deploy
-		exclude: ['**/Thumbs.db', '**/*.DS_Store'], // Excludes files from deploy
-		recursive: true,
+		destination: '77.244.220.168/html',
+	//	include: ['*.htaccess'], // Includes files to deploy
+	//	exclude: ['**/Thumbs.db', '**/*.DS_Store'], // Excludes files from deploy
+	//	recursive: true,
 		archive: true,
 		silent: false,
 		compress: true
 	}))
 });
+
+gulp.task( 'deploy', function () {
+ 
+    var conn = ftp.create( {
+        host:     '77.244.220.168',
+        user:     'dvr',
+        password: 'hCmR2ARr',
+        parallel: 1,
+        log:      gutil.log
+    });
+
+    var globs = [
+        'app/img/**',
+        'app/css/**',
+        'app/js/**',
+        'app/fonts/**',
+        'app/index.html'
+    ];
+
+    return gulp.src( globs, { base: '.', buffer: false } )
+        .pipe( conn.newer( '/var/www/html' ) ) // only upload newer files
+        .pipe( conn.dest( '/var/www/html' ) );
+ 
+} );
 
 gulp.task('default', ['watch']);
