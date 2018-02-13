@@ -18,6 +18,7 @@ gulp.task('js', function() {
 	//	'app/libs/popper.js/dist/popper.min.js',
 		'app/libs/holderjs/holder.min.js',
 		'app/libs/bootstrap/dist/js/bootstrap.min.js',
+		'app/libs/magnific-popup/dist/jquery.magnific-popup.min.js',
 		'app/js/common.js', // Always at the end
 		])
 	.pipe(concat('scripts.min.js'))
