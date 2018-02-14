@@ -16,9 +16,11 @@ var gulp          = require('gulp'),
 gulp.task('js', function() {
 	return gulp.src([
 		'app/libs/jquery/dist/jquery.min.js',
-	//	'app/libs/popper.js/dist/popper.min.js',
+		'app/libs/popper.js/dist/umd/popper.min.js',
+	//	'app/libs/popper.js/dist/popper-utils.js',
 		'app/libs/holderjs/holder.min.js',
 		'app/libs/bootstrap/dist/js/bootstrap.min.js',
+	//	'app/libs/bootstrap/js/dist/util.js',
 		'app/libs/magnific-popup/dist/jquery.magnific-popup.min.js',
 		'app/js/common.js', // Always at the end
 		])
