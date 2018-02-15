@@ -43,14 +43,11 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#"> Главная<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="\"> Главная<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">О нас </a>
+              <a class="nav-link" href="about.html">О нас </a>
             </li>            
-            <li class="nav-item">
-              <a class="nav-link" href="#">Контакты </a>
-            </li>
             <li class="nav-item active">
               <a class="nav-link" href="product.html"><i class="fab fa-product-hunt"></i> Продукты </a>
             </li>                        
@@ -66,22 +63,29 @@
 <div class="section-pic" style="background-image: url('img/splash_fon/cheese_butter.jpg');">
   <div class="row">
     <div class="col-12">
-  <p class="text-center" style="color: #fff; font-size: 54px; font-weight: 500; line-height: 1.1;padding-top: 400px;">ТУШЕНКА</p>
+  <p class="text-center" style="color: #fff; font-size: 54px; font-weight: 500; line-height: 1.1;padding-top: 400px;">СЫРЫ, МАСЛО, ОБЕЗЖИРИННОЕ МОЛОКО</p>
     </div>
   </div>
 </div>
-
-<div class="row">
-  <div class="col-2">
-<nav class="nav flex-column menu-aside">
-  <p class="nav-link" href="product.html"><strong>Продукты питания</strong></p>
-  <a class="nav-link active" href="canned_vegetables.html">Консервированные овощи</a>
+<div class="row d-lg-none">
+  <nav class="nav">
+  <a class="nav-link" href="canned_vegetables.html">Консервированные овощи</a>
   <a class="nav-link" href="condensed_milk.html">Сгущенное молоко</a>
   <a class="nav-link" href="canned_meat.html">Тушенка</a>
   <a class="nav-link" href="cheese_butter.html"><strong>Сыры, масло, обезжиренное молоко</strong></a>
-</nav>
+</nav> 
+</div>
+<div class="row">
+  <div class="col-3 d-none d-lg-block">
+    <nav class="nav flex-column ">
+      <p class="nav-link" href="product.html"><strong>Продукты питания</strong></p>
+      <a class="nav-link " href="canned_vegetables.html">Консервированные овощи</a>
+      <a class="nav-link" href="condensed_milk.html">Сгущенное молоко</a>
+      <a class="nav-link" href="canned_meat.html">Тушенка</a>
+      <a class="nav-link active" href="cheese_butter.html"><strong>Сыры, масло, обезжиренное молоко</strong></a>
+    </nav>
   </div>
-  <div class="col-10">
+  <div class="col center-block">
 <div class="row">
   <div class="col">
     <div class="card" style="width: 18rem;">
@@ -169,9 +173,6 @@
               <li class="nav-item">
                 <a class="nav-link" href="#">О нас</a>
               </li>        
-              <li class="nav-item">
-                <a class="nav-link" href="#">Контакты</a>
-              </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Продукты питания</a>
               </li>
