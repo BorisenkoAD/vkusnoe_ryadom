@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+	<meta charset="utf-8">
+	<base href="/">
+
+	<title>Вкусное рядом</title>
+	<meta name="description" content="">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	
+	<!-- Template Basic Images Start -->
+	<meta property="og:image" content="img/green.png">
+	<link rel="icon" href="img/favicon/favicon.ico">
+	<link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon-180x180.png">
+	<!-- Template Basic Images End -->
+	
+  <!-- Chrome, Firefox OS and Opera -->
+  <meta name="theme-color" content="#04B404">
+  <!-- Windows Phone -->
+  <meta name="msapplication-navbutton-color" content="#04B404">
+  <!-- iOS Safari -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="#0004B4040">
+
+	<link rel="stylesheet" href="css/main.min.css">
+
+</head>
+<body>
+<form enctype="multipart/form-data" method="POST" id = "insertTovar" action="TovarSet.php">
+  <div class="form-group row">
+    <label for="inputName1" class="col-4 col-form-label">Наименование</label>
+    <div class="col-8">
+      <input type="text" class="form-control" name="inputName1" id="inputName1" placeholder="Имя товара">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputName2" class="col-4 col-form-label">Наименование 2</label>
+    <div class="col-8">
+      <input type="text" class="form-control" name="inputName2" placeholder="Продолжение">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputPrice" class="col-4 col-form-label">Стоимость </label>
+    <div class="col-8">
+      <input type="text" class="form-control" name="inputPrice" placeholder="Стоимость">
+    </div>
+  </div> 
+   <div class="form-group row">
+	<label for="category" class="col-4 col-form-label">Категория</label>
+		<div class="col-8">
+	      	<select class="form-control" name="category" id="category">
+	        <option selected>Выберете категорию товара</option>
+	        <option value="1">КОНСЕРВИРОВАННЫЕ ОВОЩИ</option>
+	        <option value="2">СГУЩЕННОЕ МОЛОКО</option>
+	        <option value="3">ТУШЕНКА</option>
+	        <option value="4">СЫРЫ, МАСЛО, ОБЕЗЖИРИННОЕ МОЛОКО</option>	        	  	        
+	     	</select>
+  		</div>
+    </div>
+   <div class="form-group row">
+	<label for="picture" class="col-4 col-form-label">Добавить изображение</label>
+		<div class="col-8">
+	      	<input type="file" class="picture" id="picture" name="picture">
+  		</div>
+    </div>    
+
+  <div class="form-group row">
+    <div class="col-5">
+      <button type="submit" class="btn btn-primary">добавить</button>
+    </div>
+  </div>
+</form>	
+	<script src="js/scripts.min.js"></script>
+</body>
+</html>

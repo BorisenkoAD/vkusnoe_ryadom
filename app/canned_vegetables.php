@@ -1,5 +1,5 @@
 <?php
-require "insertTovar.php"?>
+require "TovarGet.php"?>
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -90,17 +90,17 @@ require "insertTovar.php"?>
   </div>
   <div class="col center-block">
     <div class="row">
+        <?php foreach($tovars_ID1 as $tovar){?>    
       <div class="col">
-        <?php foreach($tovars_ID1 as $tovar){?>
         <div class="card" style="height: 480px; width: 18rem;">
-          <img class="card-img-top mx-auto pt-2" src="i/<?php echo "$tovar->imagepath" ?>" alt="Вкусное рядом! Фасоль красная" style="width: 180px; display: block;" data-holder-rendered="true">
+          <img class="card-img-top mx-auto pt-2" src="i/<?php echo "$tovar->imagepath" ?>" alt="Вкусное рядом! <?php echo "$tovar->name" ?>" style="width: 180px; display: block;" data-holder-rendered="true">
           <div class="card-body">
             <h5 class="card-title"><?php echo "$tovar->name" ?></h5>
             <p class="card-text"><?php echo "$tovar->secondname" ?></p>
           </div>
         </div>
-        <?php }?>
-      </div>       
+      </div> 
+       <?php }?>                        
     </div>
   </div>
 </div>

@@ -16,4 +16,24 @@ $(function() {
 			}
 		}
 	});
+
+	$(".preloader").fadeOut();
+/*
+	//E-mail Ajax Send
+	$("#insertTovar").submit(function() { //Change
+		var th = $(this);
+		$.ajax({
+			type: "POST",
+			url: "insertTovar.php", //Change
+			data: th.serialize()
+		}).done(function() {
+			window.alert("Товар добавлен");
+			setTimeout(function() {
+				// Done Functions
+				th.trigger("reset");
+			}, 1000);
+		});
+		return false;
+	});
+*/
 });
