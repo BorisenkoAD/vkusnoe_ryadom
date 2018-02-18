@@ -1,3 +1,5 @@
+<?php
+require "getTovar.php"?>
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -70,85 +72,36 @@
 
 <div class="row d-lg-none">
   <nav class="nav">
-    <a class="nav-link" href="canned_vegetables.html">Консервированные овощи</a>
-    <a class="nav-link" href="condensed_milk.html"><strong>Сгущенное молоко</strong></a>
-    <a class="nav-link" href="canned_meat.html">Тушенка</a>
-    <a class="nav-link" href="cheese_butter.html">Сыры, масло, обезжиренное молоко</a>
+    <a class="nav-link" href="canned_vegetables.html?id=1">Консервированные овощи</a>
+    <a class="nav-link" href="condensed_milk.html?id=2">Сгущенное молоко</a>
+    <a class="nav-link" href="canned_meat.html?id=3">Тушенка</a>
+    <a class="nav-link" href="cheese_butter.html?id=4">Сыры, масло, обезжиренное молоко</a>
   </nav> 
 </div>
 <div class="row">
   <div class="col-3 d-none d-lg-block">
     <nav class="nav flex-column ">
       <p class="nav-link" href="product.html"><strong>Продукты питания</strong></p>
-      <a class="nav-link " href="canned_vegetables.html">Консервированные овощи</a>
-      <a class="nav-link" href="condensed_milk.html"><strong>Сгущенное молоко</strong></a>
-      <a class="nav-link" href="canned_meat.html">Тушенка</a>
-      <a class="nav-link active" href="cheese_butter.html">Сыры, масло, обезжиренное молоко</a>
+    <a class="nav-link" href="canned_vegetables.html?id=1">Консервированные овощи</a>
+    <a class="nav-link" href="condensed_milk.html?id=2">Сгущенное молоко</a>
+    <a class="nav-link" href="canned_meat.html?id=3">Тушенка</a>
+    <a class="nav-link" href="cheese_butter.html?id=4">Сыры, масло, обезжиренное молоко</a>
     </nav>
   </div>
-<div class="col center-block">
-<div class="row">
-  <div class="col">
-    <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="img/img_cat/5.jpg" alt="Image cap [100%x180]" style="height: 180px; width: 100%; display: block;" data-holder-rendered="true">
-      <div class="card-body">
-        <h5 class="card-title">Специальный заголовок</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Переход куда-нибудь</a>
+  <div class="col center-block">
+    <div class="row">
+        <?php foreach($tovars_ID1 as $tovar){?>    
+      <div class="col">
+        <div class="card" style="height: 480px; width: 18rem;">
+          <img class="card-img-top mx-auto pt-2" src="i/<?php echo "$tovar->imagepath" ?>" alt="Вкусное рядом! <?php echo "$tovar->name" ?>" style="width: 180px; display: block;" data-holder-rendered="true">
+          <div class="card-body">
+            <h5 class="card-title"><?php echo "$tovar->name" ?></h5>
+            <p class="card-text"><?php echo "$tovar->secondname" ?></p>
+          </div>
+        </div>
       </div>
+      <?php }?>           
     </div>
-  </div>
-  <div class="col">
-    <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="img/img_cat/4.jpg" alt="Image cap [100%x180]" style="height: 180px; width: 100%; display: block;" data-holder-rendered="true">
-      <div class="card-body">
-        <h5 class="card-title">Специальный заголовок</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Переход куда-нибудь</a>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="img/img_cat/3.jpg" alt="Image cap [100%x180]" style="height: 180px; width: 100%; display: block;" data-holder-rendered="true">
-      <div class="card-body">
-        <h5 class="card-title">Специальный заголовок</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Переход куда-нибудь</a>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="img/img_cat/2.jpg" alt="Image cap [100%x180]" style="height: 180px; width: 100%; display: block;" data-holder-rendered="true">
-      <div class="card-body">
-        <h5 class="card-title">Специальный заголовок</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Переход куда-нибудь</a>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="img/img_cat/1.jpg" alt="Image cap [100%x180]" style="height: 180px; width: 100%; display: block;" data-holder-rendered="true">
-      <div class="card-body">
-        <h5 class="card-title">Специальный заголовок</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Переход куда-нибудь</a>
-      </div>
-    </div>
-  </div> 
-  <div class="col">
-    <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="img/img_cat/5.jpg" alt="Image cap [100%x180]" style="height: 180px; width: 100%; display: block;" data-holder-rendered="true">
-      <div class="card-body">
-        <h5 class="card-title">Специальный заголовок</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Переход куда-нибудь</a>
-      </div>
-    </div>
-  </div>        
-</div>
   </div>
 </div>
 </div> 

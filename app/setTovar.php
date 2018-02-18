@@ -13,12 +13,12 @@ $inputPrice = substr(htmlspecialchars(trim($_POST['inputPrice'])), 0, 50);
 
 R::freeze(false);
 
-$path = 'i/';
+$path = 'img/img_cat/';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
  if (!@copy($_FILES['picture']['tmp_name'], $path.$_FILES['picture']['name']))
-  echo 'Что-то пошло не так';
+  echo 'Что-то пошло не так в процессе загрузки файла(((((';
  else	
 	$imgpath = $_FILES['picture']['name'];
 }
