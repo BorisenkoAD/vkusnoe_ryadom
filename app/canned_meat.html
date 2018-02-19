@@ -93,10 +93,10 @@ require "getTovar.php"?>
         <?php foreach($tovars_ID1 as $tovar){?>    
       <div class="col">
         <div class="card" style="height: 480px; width: 18rem;">
-          <img class="card-img-top mx-auto pt-2" src="i/<?php echo "$tovar->imagepath" ?>" alt="Вкусное рядом! <?php echo "$tovar->name" ?>" style="width: 180px; display: block;" data-holder-rendered="true">
+          <img class="card-img-top mx-auto pt-2" src="img/img_cat/<?php echo "$tovar->imagepath" ?>" alt="Вкусное рядом! <?php echo "$tovar->name" ?>" style="width: 180px; display: block;" data-holder-rendered="true">
           <div class="card-body">
-            <h5 class="card-title"><?php echo "$tovar->name" ?></h5>
-            <p class="card-text"><?php echo "$tovar->secondname" ?></p>
+            <h5 class="card-title text-uppercase text-center"><?php echo "$tovar->name" ?></h5>
+            <p class="card-text text-lowercase"><?php echo "$tovar->secondname" ?></p>
           </div>
         </div>
       </div>
