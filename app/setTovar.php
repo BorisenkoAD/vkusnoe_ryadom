@@ -1,7 +1,7 @@
 <?php
 require "rb-mysql.php";
 
-R::setup('mysql:host=127.0.0.1;dbname=rb_test', 'root', '');
+R::setup('mysql:host=127.0.0.1;dbname=rb_test', 'root', 'hCmR2ARr');
 
 if( !R::testConnection()){
 	exit('Нет подключения к БД');
@@ -13,27 +13,40 @@ $inputPrice = substr(htmlspecialchars(trim($_POST['inputPrice'])), 0, 50);
 
 R::freeze(false);
 
-$path = 'img/img_cat/';
+$types = array('image/gif', 'image/png', 'image/jpeg');
+$size = 1024000;
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST')
-{
- if (!@copy($_FILES['picture']['tmp_name'], $path.$_FILES['picture']['name']))
-  echo 'Что-то пошло не так в процессе загрузки файла(((((';
- else	
-	$imgpath = $_FILES['picture']['name'];
-}
+// Проверяем тип файла
+if (!in_array($_FILES['picture']['type'], $types))
+ die('wrong file extension. <a href="catalog.html">try again</a>');
+
+// Проверяем размер файла
+if ($_FILES['picture']['size'] > $size)
+ die('Too many size. The size should be less than or equal to 1Mb. <a href="catalog.html">Try again</a>');
+
+
+	move_uploaded_file (
+		$_FILES["picture"]["tmp_name"],
+		__DIR__.DIRECTORY_SEPARATOR.'img/img_cat/'.$_FILES["picture"]["name"]);
+
+	$imgPath = __DIR__.DIRECTORY_SEPARATOR.'img/img_cat/'.$_FILES["picture"]["name"];
+
+	$array_imgPath = explode("/", $imgPath);
+
+	$stack = array($array_imgPath[5], $array_imgPath[6], $array_imgPath[7]);
+
+	$truePathToImage = implode("/", $stack);
 
 $tovar = R::dispense('product');
 $tovar -> name = $inputName1;
 $tovar -> secondname = $inputName2;
 $tovar -> price = $inputPrice;
 $tovar -> category = $cCategory;
-$tovar -> imagepath = $imgpath;
+$tovar -> imagepath = $truePathToImage;
 
 R::store($tovar);
-
-
 ?>
+
 <script type="text/javascript">
-             setTimeout('location.replace("/catalog.html")', 500);
-        </script>
+	setTimeout('history.back()', 500);
+</script>

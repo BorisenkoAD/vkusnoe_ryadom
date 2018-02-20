@@ -70,6 +70,7 @@ gulp.task('build', ['removedist', 'imagemin', 'sass', 'js'], function() {
 
 	var buildFiles = gulp.src([
 		'app/*.html',
+		'app/*php',
 		'app/.htaccess',
 		]).pipe(gulp.dest('dist'));
 

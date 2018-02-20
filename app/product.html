@@ -1,5 +1,3 @@
-<?php
-require "getTovar.php"?>
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -29,9 +27,6 @@ require "getTovar.php"?>
 </head>
 
 <body>
-
-	<!-- Custom HTML -->
-
  <header>
       <div class="container">
       <nav class="navbar navbar-expand-xl navbar-light" style="color: #white;">
@@ -56,6 +51,7 @@ require "getTovar.php"?>
           </ul>
 		      <span class="navbar-text"><i class="fas fa-phone-square"></i> <strong>+7(812)333-33-55 </strong></span>
           <button href="#form" class="btn btn-outline-success my-2 my-sm-0 popup-with-form" type="submit" style="margin-left: 10px;">Оставить сообщение</button>
+          <button href="#insertTovar" class="btn btn-outline-success my-2 my-sm-0 popup-with-form" type="submit" style="margin-left: 10px;">Добавить товар</button>          
         </div>
       </nav>
     </div>
@@ -88,21 +84,6 @@ require "getTovar.php"?>
     <a class="nav-link" href="cheese_butter.html?id=4">Сыры, масло, обезжиренное молоко</a>
     </nav>
   </div>
-  <div class="col center-block">
-    <div class="row">
-        <?php foreach($tovars_ID1 as $tovar){?>    
-      <div class="col">
-        <div class="card" style="height: 480px; width: 18rem;">
-          <img class="card-img-top mx-auto pt-2" src="i/<?php echo "$tovar->imagepath" ?>" alt="Вкусное рядом! <?php echo "$tovar->name" ?>" style="width: 180px; display: block;" data-holder-rendered="true">
-          <div class="card-body">
-            <h5 class="card-title"><?php echo "$tovar->name" ?></h5>
-            <p class="card-text"><?php echo "$tovar->secondname" ?></p>
-          </div>
-        </div>
-      </div>
-      <?php }?>           
-    </div>
-  </div>
 </div>
 </div> 
 <form id="form" class="white-popup-block mfp-hide">
@@ -116,6 +97,54 @@ require "getTovar.php"?>
   <button type="submit">ОТПРАВИТЬ</button>
   </div>
 </form>
+
+<form enctype="multipart/form-data" method="POST" id = "insertTovar" action="setTovar.php" class="white-popup-block mfp-hide">
+  <div class="popup__inner">
+  <div class="form-group row">
+    <label for="inputName1" class="col-4 col-form-label"><span style="color: #dc3545;">* </span >Наименование</label>
+    <div class="col-8">
+      <input type="text" class="form-control" name="inputName1" id="inputName1" placeholder="Имя товара" required>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputName2" class="col-4 col-form-label">Наименование 2</label>
+    <div class="col-8">
+      <input type="text" class="form-control" name="inputName2" placeholder="Продолжение">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputPrice" class="col-4 col-form-label">Стоимость </label>
+    <div class="col-8">
+      <input type="text" class="form-control" name="inputPrice" placeholder="Стоимость">
+    </div>
+  </div> 
+   <div class="form-group row">
+  <label for="category" class="col-4 col-form-label">Категория</label>
+    <div class="col-8">
+          <select class="form-control" name="category" id="category" required>
+          <option selected>Выберете категорию товара</option>
+          <option value="1">КОНСЕРВИРОВАННЫЕ ОВОЩИ</option>
+          <option value="2">СГУЩЕННОЕ МОЛОКО</option>
+          <option value="3">ТУШЕНКА</option>
+          <option value="4">СЫРЫ, МАСЛО, ОБЕЗЖИРИННОЕ МОЛОКО</option>                       
+        </select>
+      </div>
+    </div>
+   <div class="form-group row">
+  <label for="picture" class="col-4 col-form-label">Добавить изображение 1Mb</label>
+    <div class="col-8">
+          <input type="file" class="picture" id="picture" name="picture">
+      </div>
+    </div>    
+
+  <div class="form-group row">
+    <div class="col-5">
+      <button type="submit" class="btn btn-primary">добавить</button>
+    </div>
+  </div>
+</div>
+</form> 
+
 <hr class="featurette-divider">       
       </div><!-- /.container -->
             <!-- FOOTER -->
