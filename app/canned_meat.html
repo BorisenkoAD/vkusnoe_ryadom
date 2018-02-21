@@ -57,7 +57,7 @@ require "getTovar.php"?>
 		      <span class="navbar-text"><i class="fas fa-phone-square"></i> <strong>+7(812)333-33-55 </strong></span>
           <?php if(!empty($_COOKIE['username'])) {?>
           <button href="#insertTovar" class="btn btn-outline-success my-2 my-sm-0 popup-with-form" type="submit" style="margin-left: 10px;">Добавить товар</button> 
-          <a href="exit.php" class="btn btn-outline-success-exit my-2 my-sm-0" style="margin-left: 10px;">выход</a> 
+          <a href="exit.php" class="btn btn-outline-danger my-2 my-sm-0" style="margin-left: 10px;">выход</a> 
          <?php } else {?>   
           <button href="#form" class="btn btn-outline-success my-2 my-sm-0 popup-with-form" type="submit" style="margin-left: 10px;">Оставить сообщение</button> 
           <button href="#auth" class="btn btn-outline-success my-2 my-sm-0 popup-with-form" type="submit" style="margin-left: 10px;">Войти</button>   
@@ -105,9 +105,9 @@ require "getTovar.php"?>
             <p class="card-text text-lowercase"><?php echo "$tovar->secondname" ?></p>
               <?php if(!empty($_COOKIE['username'])) {?>
                 <a href="editTovar.php?id=<?php echo "$tovar->id"?>">
-                  <i class="fas fa-pen-square fa-2x"></i>
+                  <i class="far fa-edit fa-lg"></i>
                 </a><a href="deleteTovar.php?id=<?php echo "$tovar->id"?>">              
-                  <i class="fas fa-trash fa-2x"></i>
+                  <i class="fas fa-trash-alt fa-lg"></i>
                 </a>
               <?php }?>
           </div>          
