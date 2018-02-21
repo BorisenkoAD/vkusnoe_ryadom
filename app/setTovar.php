@@ -1,17 +1,9 @@
 <?php
-require "rb-mysql.php";
-
-R::setup('mysql:host=127.0.0.1;dbname=rb_test', 'root', 'hCmR2ARr');
-
-if( !R::testConnection()){
-	exit('Нет подключения к БД');
-}
+require "conectdb.php";
 $cCategory = substr(htmlspecialchars(trim($_POST['category'])), 0, 100);
 $inputName1 = substr(htmlspecialchars(trim($_POST['inputName1'])), 0, 50);
 $inputName2 = substr(htmlspecialchars(trim($_POST['inputName2'])), 0, 50);
 $inputPrice = substr(htmlspecialchars(trim($_POST['inputPrice'])), 0, 50);
-
-R::freeze(false);
 
 $types = array('image/gif', 'image/png', 'image/jpeg');
 $size = 1024000;
@@ -45,8 +37,9 @@ $tovar -> category = $cCategory;
 $tovar -> imagepath = $truePathToImage;
 
 R::store($tovar);
-?>
+
 
 <script type="text/javascript">
 	setTimeout('history.back()', 500);
 </script>
+?>

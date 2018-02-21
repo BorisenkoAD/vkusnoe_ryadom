@@ -46,7 +46,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="\"><i class="fas fa-home"></i> Главная<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="\">Главная<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="about.html">О нас </a>
@@ -56,7 +56,13 @@
             </li>                        	
           </ul>
 		      <span class="navbar-text"><i class="fas fa-phone-square"></i> <strong>+7(812)333-33-55 </strong></span>
-          <button href="#form" class="btn btn-outline-success my-2 my-sm-0 popup-with-form" type="submit" style="margin-left: 10px;">Оставить сообщение</button>
+          <?php if(!empty($_COOKIE['username'])) {?>
+          <button href="#insertTovar" class="btn btn-outline-success my-2 my-sm-0 popup-with-form" type="submit" style="margin-left: 10px;">Добавить товар</button> 
+          <a href="exit.php" class="btn btn-outline-success my-2 my-sm-0" style="margin-left: 10px;">выход</a> 
+         <?php } else {?>   
+          <button href="#form" class="btn btn-outline-success my-2 my-sm-0 popup-with-form" type="submit" style="margin-left: 10px;">Оставить сообщение</button> 
+          <button href="#auth" class="btn btn-outline-success my-2 my-sm-0 popup-with-form" type="submit" style="margin-left: 10px;">Войти</button>   
+        <?php }?> 
         </div>
       </nav>
     </div>
@@ -204,10 +210,7 @@
 <div class="row">
   <div class="col-6">
     <adress>
-      <p class="text-center">
-        <h2>Адрес</h2>
-        
-      </p>
+        <h2>Адрес</h2>        
     </adress>
   </div>
   <div class="col-6">
@@ -216,17 +219,73 @@
     </adress>
   </div>
 </div>
+<?php if(!empty($_COOKIE['username'])) {?>
+<form enctype="multipart/form-data" method="POST" id = "insertTovar" action="setTovar.php" class="white-popup-block mfp-hide">
+  <div class="popup__inner">
+  <div class="form-group row">
+    <label for="inputName1" class="col-4 col-form-label"><span style="color: #dc3545;">* </span >Наименование</label>
+    <div class="col-8">
+      <input type="text" class="form-control" name="inputName1" id="inputName1" placeholder="Имя товара" required>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputName2" class="col-4 col-form-label">Наименование 2</label>
+    <div class="col-8">
+      <input type="text" class="form-control" name="inputName2" placeholder="Продолжение">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputPrice" class="col-4 col-form-label">Стоимость </label>
+    <div class="col-8">
+      <input type="text" class="form-control" name="inputPrice" placeholder="Стоимость">
+    </div>
+  </div> 
+   <div class="form-group row">
+  <label for="category" class="col-4 col-form-label">Категория</label>
+    <div class="col-8">
+          <select class="form-control" name="category" id="category" required>
+          <option selected>Выберете категорию товара</option>
+          <option value="1">КОНСЕРВИРОВАННЫЕ ОВОЩИ</option>
+          <option value="2">СГУЩЕННОЕ МОЛОКО</option>
+          <option value="3">ТУШЕНКА</option>
+          <option value="4">СЫРЫ, МАСЛО, ОБЕЗЖИРИННОЕ МОЛОКО</option>                       
+        </select>
+      </div>
+    </div>
+   <div class="form-group row">
+  <label for="picture" class="col-4 col-form-label">Добавить изображение 1Mb</label>
+    <div class="col-8">
+          <input type="file" class="picture" id="picture" name="picture">
+      </div>
+    </div>    
+  <div class="form-group row">
+    <div class="col-5">
+      <button type="submit" class="btn btn-primary">добавить</button>
+    </div>
+  </div>
+</div>
+</form> 
+<?php } else {?>
+<form id="auth" class="white-popup-block mfp-hide" action="login.php" method="POST">
+  <div class="popup__inner">
+  <h1>Авторизация</h1>
+        <input type="text" id="username" name="username" placeholder="Имя" required="">
+        <input type="password" id="password" name="password" placeholder="Пароль" required="">
+  <button type="submit" name="submit">войти</button>
+  </div>
+</form>
 <form id="form" class="white-popup-block mfp-hide">
   <div class="popup__inner">
   <h1>ОБРАТНАЯ СВЯЗЬ</h1>
     <p>Если у вас остались вопросы — напишите нам и мы ответим вам в самое ближайшее время</p>
         <input id="name" name="name" type="text" placeholder="Имя">
         <input id="email" name="email" type="email" placeholder="example@domain.com" required="">
-        <input id="phone" name="phone" type="tel" placeholder="Eg. +79210000000" required="">
+        <input id="phone" name="phone" type="tel" placeholder="Eg. +447500000000" required="">
         <textarea id="textarea"></textarea>
   <button type="submit">ОТПРАВИТЬ</button>
   </div>
 </form>
+<?php }?> 
 <hr class="featurette-divider">       
       </div><!-- /.container -->
             <!-- FOOTER -->

@@ -1,18 +1,12 @@
 <?php
-require "rb-mysql.php";
 
-R::setup('mysql:host=127.0.0.1;dbname=rb_test', 'root', '');
+require "conectdb.php";
 
-if( !R::testConnection()){
-	exit('Нет подключения к БД');
-}
-/*
-$user = R::dispense('user');
-$user -> username = 'root2';
-$user -> password = '321';
-
-R::store($user);*/
-
+/*$user = R::dispense('user');
+$user -> username = 'root';
+$user -> password = '123';
+R::store($user);
+*/
 
 if(!isset($_COOKIE['user_id'])) {
 	if(isset($_POST['submit'])) {
@@ -42,11 +36,3 @@ if(!isset($_COOKIE['user_id'])) {
 }
 
 ?>
-	<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-		<label for="username">Логин:</label>
-	<input type="text" name="username">
-	<label for="password">Пароль:</label>
-	<input type="password" name="password">
-	<button type="submit" name="submit">Вход</button>
-	<a href="signup.php">Регистрация</a>
-	</form>

@@ -51,12 +51,17 @@ require "getTovar.php"?>
               <a class="nav-link" href="about.html">О нас </a>
             </li>            
             <li class="nav-item active">
-              <a class="nav-link" href="product.html"><i class="fab fa-product-hunt"></i> Продукты </a>
+              <a class="nav-link" href="product.html">Продукты </a>
             </li>                        
           </ul>
 		      <span class="navbar-text"><i class="fas fa-phone-square"></i> <strong>+7(812)333-33-55 </strong></span>
-          <button href="#form" class="btn btn-outline-success my-2 my-sm-0 popup-with-form" type="submit" style="margin-left: 10px;">Оставить сообщение</button>
-          <button href="#insertTovar" class="btn btn-outline-success my-2 my-sm-0 popup-with-form" type="submit" style="margin-left: 10px;">Добавить товар</button>            
+          <?php if(!empty($_COOKIE['username'])) {?>
+          <button href="#insertTovar" class="btn btn-outline-success my-2 my-sm-0 popup-with-form" type="submit" style="margin-left: 10px;">Добавить товар</button> 
+          <a href="exit.php" class="btn btn-outline-success my-2 my-sm-0" style="margin-left: 10px;">выход</a> 
+         <?php } else {?>   
+          <button href="#form" class="btn btn-outline-success my-2 my-sm-0 popup-with-form" type="submit" style="margin-left: 10px;">Оставить сообщение</button> 
+          <button href="#auth" class="btn btn-outline-success my-2 my-sm-0 popup-with-form" type="submit" style="margin-left: 10px;">Войти</button>   
+        <?php }?>          
         </div>
       </nav>
     </div>
@@ -98,6 +103,13 @@ require "getTovar.php"?>
           <div class="card-body">
             <h5 class="card-title text-uppercase text-center"><?php echo "$tovar->name" ?></h5>
             <p class="card-text text-lowercase"><?php echo "$tovar->secondname" ?></p>
+              <?php if(!empty($_COOKIE['username'])) {?>
+                <a href="editTovar.php?id=<?php echo "$tovar->id"?>">
+                  <i class="fas fa-pen-square fa-2x"></i>
+                </a><a href="deleteTovar.php?id=<?php echo "$tovar->id"?>">              
+                  <i class="fas fa-trash fa-2x"></i>
+                </a>
+              <?php }?>            
           </div>
         </div>
       </div>
@@ -106,17 +118,7 @@ require "getTovar.php"?>
   </div>
 </div>
 </div> 
-<form id="form" class="white-popup-block mfp-hide">
-  <div class="popup__inner">
-  <h1>ОБРАТНАЯ СВЯЗЬ</h1>
-    <p>Если у вас остались вопросы — напишите нам и мы ответим вам в самое ближайшее время</p>
-        <input id="name" name="name" type="text" placeholder="Имя">
-        <input id="email" name="email" type="email" placeholder="example@domain.com" required="">
-        <input id="phone" name="phone" type="tel" placeholder="Eg. +447500000000" required="">
-        <textarea id="textarea"></textarea>
-  <button type="submit">ОТПРАВИТЬ</button>
-  </div>
-</form>
+<?php if(!empty($_COOKIE['username'])) {?>
 <form enctype="multipart/form-data" method="POST" id = "insertTovar" action="setTovar.php" class="white-popup-block mfp-hide">
   <div class="popup__inner">
   <div class="form-group row">
@@ -155,7 +157,6 @@ require "getTovar.php"?>
           <input type="file" class="picture" id="picture" name="picture">
       </div>
     </div>    
-
   <div class="form-group row">
     <div class="col-5">
       <button type="submit" class="btn btn-primary">добавить</button>
@@ -163,6 +164,27 @@ require "getTovar.php"?>
   </div>
 </div>
 </form> 
+<?php } else {?>
+<form id="auth" class="white-popup-block mfp-hide" action="login.php" method="POST">
+  <div class="popup__inner">
+  <h1>Авторизация</h1>
+        <input type="text" id="username" name="username" placeholder="Имя" required="">
+        <input type="password" id="password" name="password" placeholder="Пароль" required="">
+  <button type="submit" name="submit">войти</button>
+  </div>
+</form>
+<form id="form" class="white-popup-block mfp-hide">
+  <div class="popup__inner">
+  <h1>ОБРАТНАЯ СВЯЗЬ</h1>
+    <p>Если у вас остались вопросы — напишите нам и мы ответим вам в самое ближайшее время</p>
+        <input id="name" name="name" type="text" placeholder="Имя">
+        <input id="email" name="email" type="email" placeholder="example@domain.com" required="">
+        <input id="phone" name="phone" type="tel" placeholder="Eg. +447500000000" required="">
+        <textarea id="textarea"></textarea>
+  <button type="submit">ОТПРАВИТЬ</button>
+  </div>
+</form>
+<?php }?> 
 <hr class="featurette-divider">       
       </div><!-- /.container -->
             <!-- FOOTER -->
