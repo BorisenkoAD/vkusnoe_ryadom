@@ -20,9 +20,12 @@ require "getTovar.php"?>
 	<link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon-180x180.png">
 	<!-- Template Basic Images End -->
 	
-	<!-- Custom Browsers Color Start -->
-	<meta name="theme-color" content="#04B404">
-	<!-- Custom Browsers Color End -->
+  <!-- Chrome, Firefox OS and Opera -->
+  <meta name="theme-color" content="#04B404">
+  <!-- Windows Phone -->
+  <meta name="msapplication-navbutton-color" content="#04B404">
+  <!-- iOS Safari -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="#04B404">
 
 	<link rel="stylesheet" href="css/main.min.css">
 
@@ -71,11 +74,13 @@ require "getTovar.php"?>
 <div class="section-pic" style="background-image: url('img/splash_fon/cheese_butter.jpg');">
   <div class="row">
     <div class="col-12">
-  <p class="text-center" style="color: #fff; font-size: 54px; font-weight: 500; line-height: 1.1;padding-top: 400px;">СЫРЫ, МАСЛО, ОБЕЗЖИРИННОЕ МОЛОКО</p>
+  <p class="text-center d-none d-sm-block d-sm-none d-md-block" style="color: #fff; font-size: 54px; font-weight: 500; line-height: 1.1;padding-top: 400px;">СЫРЫ, МАСЛО, ОБЕЗЖИРИННОЕ МОЛОКО</p>
     </div>
   </div>
 </div>
+<a id="catalog">
 <div class="row d-lg-none">
+</a>
   <nav class="nav">
     <a class="nav-link" href="canned_vegetables.html?id=1">Консервированные овощи</a>
     <a class="nav-link" href="condensed_milk.html?id=2">Сгущенное молоко</a>
@@ -93,27 +98,29 @@ require "getTovar.php"?>
     <a class="nav-link" href="cheese_butter.html?id=4">Сыры, масло, обезжиренное молоко</a>
     </nav>
   </div>
-  <div class="col center-block">
-    <div class="row">
-        <?php foreach($tovars_ID1 as $tovar){?>    
-      <div class="col">
-        <div class="card" style="height: 480px; width: 18rem;">
-          <img class="card-img-top mx-auto pt-2" src="<?php echo "$tovar->imagepath" ?>" alt="Вкусное рядом! <?php echo "$tovar->name" ?>" style="width: 180px; display: block;" data-holder-rendered="true">
-          <div class="card-body">
-            <h5 class="card-title text-uppercase text-center"><?php echo "$tovar->name" ?></h5>
-            <p class="card-text text-lowercase"><?php echo "$tovar->secondname" ?></p>
-              <?php if(!empty($_COOKIE['username'])) {?>
-                <a href="editTovar.php?id=<?php echo "$tovar->id"?>">
-                  <i class="far fa-edit fa-lg"></i>
-                </a><a href="deleteTovar.php?id=<?php echo "$tovar->id"?>">              
-                  <i class="fas fa-trash-alt fa-lg"></i>
-                </a>
-              <?php }?>            
+  <div class="col-9 center-block">
+      <div class="card-columns">
+        <?php foreach($tovars_ID1 as $tovar){?> 
+        <div class="col">
+          <div class="card ">
+            <img class="card-img-top center-block" src="<?php echo "$tovar->imagepath"?>" alt="Вкусное рядом! <?php echo "$tovar->name"?>" style="display: block;" data-holder-rendered="true">
+            <div class="card-body">
+              <h5 class="card-title text-uppercase text-center"><?php echo "$tovar->name" ?></h5>
+              <p class="card-text text-lowercase"><?php echo "$tovar->secondname" ?></p>         
+            </div>
+            <?php if(!empty($_COOKIE['username'])) {?>            
+            <div class="card-footer">
+                  <a href="editTovar.php?id=<?php echo "$tovar->id"?>">
+                    <i class="far fa-edit fa-lg"></i>
+                  </a><a href="deleteTovar.php?id=<?php echo "$tovar->id"?>">              
+                    <i class="fas fa-trash-alt fa-lg"></i>
+                  </a>
+            </div>
+            <?php }?> 
           </div>
-        </div>
       </div>
-      <?php }?>           
-    </div>
+      <?php }?>         
+      </div>            
   </div>
 </div>
 </div> 

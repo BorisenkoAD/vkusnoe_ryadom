@@ -8,6 +8,21 @@ $inputPrice = substr(htmlspecialchars(trim($_POST['inputPrice'])), 0, 50);
 $types = array('image/gif', 'image/png', 'image/jpeg');
 $size = 1024000;
 
+
+if($_SERVER['REQUEST_METHOD'] == 'GET') {
+	
+	$product = R::load( 'product', $id ); 
+
+	$product -> name = $inputName1;
+	$product -> secondname = $inputName2;
+	$product -> price = $inputPrice;
+	$product -> category = $cCategory;
+	$product -> imagepath = $truePathToImage;
+
+	R::store( $product );    // наш код
+}
+
+
 // Проверяем тип файла
 if (!in_array($_FILES['picture']['type'], $types))
  die('wrong file extension. <a href="catalog.html">try again</a>');
