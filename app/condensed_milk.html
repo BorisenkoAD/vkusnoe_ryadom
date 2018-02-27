@@ -111,9 +111,7 @@ require "getTovar.php"?>
             </div>
             <?php if(!empty($_COOKIE['username'])) {?>            
             <div class="card-footer">
-                  <a href="editTovar.php?id=<?php echo "$tovar->id"?>">
-                    <i class="far fa-edit fa-lg"></i>
-                  </a><a href="deleteTovar.php?id=<?php echo "$tovar->id"?>">              
+                  <a href="deleteTovar.php?id=<?php echo "$tovar->id"?>">              
                     <i class="fas fa-trash-alt fa-lg"></i>
                   </a>
             </div>

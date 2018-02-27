@@ -53,8 +53,7 @@ $tovar -> imagepath = $truePathToImage;
 
 R::store($tovar);
 
-
+?>
 <script type="text/javascript">
 	setTimeout('history.back()', 500);
 </script>
-?>
