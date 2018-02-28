@@ -14,6 +14,7 @@ var gulp          = require('gulp'),
 		notify        = require("gulp-notify"),
 		rsync         = require('gulp-rsync');
 
+
 // Scripts concat & minify
 
 gulp.task('js', function() {
@@ -23,8 +24,10 @@ gulp.task('js', function() {
 	//	'app/libs/popper.js/dist/popper-utils.js',
 		'app/libs/holderjs/holder.min.js',
 		'app/libs/bootstrap/dist/js/bootstrap.min.js',
+		'app/libs/parallax.js/parallax.min.js',
 	//	'app/libs/bootstrap/js/dist/util.js',
 		'app/libs/magnific-popup/dist/jquery.magnific-popup.min.js',
+
 		'app/js/common.js', // Always at the end
 		])
 	.pipe(concat('scripts.min.js'))
