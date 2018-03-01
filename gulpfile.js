@@ -22,7 +22,6 @@ gulp.task('js', function() {
 		'app/libs/jquery/dist/jquery.min.js',
 		'app/libs/popper.js/dist/umd/popper.min.js',
 	//	'app/libs/popper.js/dist/popper-utils.js',
-		'app/libs/holderjs/holder.min.js',
 		'app/libs/bootstrap/dist/js/bootstrap.min.js',
 		'app/libs/parallax.js/parallax.min.js',
 	//	'app/libs/bootstrap/js/dist/util.js',
