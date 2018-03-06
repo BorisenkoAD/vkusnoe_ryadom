@@ -1,17 +1,12 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
-
 	<meta charset="utf-8">
 	<base href="/">
-
-	<title>Вкусное рядом - о компании</title>
+	<title>Вкусное рядом - Продукты</title>
 	<meta name="description" content="">
-
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">	
 	<!-- Template Basic Images Start -->
 	<meta property="og:image" content="img/green.png">
 	<link rel="icon" href="img/favicon/favicon.ico">
@@ -30,9 +25,6 @@
 </head>
 
 <body>
-
-	<!-- Custom HTML -->
-
  <header>
       <div class="container">
       <nav class="navbar navbar-expand-xl navbar-light" style="color: #fff;">
@@ -46,15 +38,14 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#">Главная<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="\"> Главная<span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="about.html"><i class="fas fa-info-square"></i> О нас</a>
-            </li>            
             <li class="nav-item">
+              <a class="nav-link" href="about.html">О нас </a>
+            </li>            
+            <li class="nav-item active">
               <a class="nav-link" href="product.html">Продукты </a>
-            </li>                        
-
+            </li>                        	
           </ul>
 		      <span class="navbar-text"><i class="fas fa-phone-square"></i> <strong>+7(812)333-33-55 </strong></span>
           <?php if(!empty($_COOKIE['username'])) {?>
@@ -63,45 +54,61 @@
          <?php } else {?>   
           <button href="#form" class="btn btn-outline-success my-2 my-sm-0 popup-with-form" type="submit" style="margin-left: 10px;">Оставить сообщение</button> 
           <button href="#auth" class="btn btn-outline-success my-2 my-sm-0 popup-with-form" type="submit" style="margin-left: 10px;">Войти</button>   
-        <?php }?> 
+        <?php }?>   
         </div>
       </nav>
     </div>
   </header>
     <main role="main">
 
-<div class="section-pic parallax-window" data-parallax="scroll" data-image-src="img/splash_fon/about_splash.jpg">
+<div class="section-pic parallax-window" data-parallax="scroll" data-image-src="img/splash_fon/produkty_all.jpg">
   <div class="row">
     <div class="col-12">
-  <p class="text-center" style="color: #fff; font-size: 54px; font-weight: 500; line-height: 1.1;padding-top: 400px;">О КОМПАНИИ</p>
+  <p class="text-center" style="color: #fff; font-size: 54px; font-weight: 500; line-height: 1.1;padding-top: 400px;">ПРОДУКТЫ ПИТАНИЯ</p>
     </div>
   </div>
 </div>
-      <!-- Marketing messaging and featurettes
-      ================================================== -->
-      <!-- Wrap the rest of the page in another container to center all the content. -->
-
-      <div class="container marketing">
-
-        <!-- Three columns of text below the carousel -->
-        <div class="row">
-          <div class="col-lg-4">
-            <img class="rounded-circle" src="img/green.png" alt="Generic placeholder image" width="140" height="140">
-            <h2><span class="hidden-md-down visible">Филиалы</h2></span>
-            <p>ООО «Калимера» имеет свой филиалы в городе Краснодар.</p>
-            
-          </div><!-- /.col-lg-4 -->
-          <div class="col-lg-4">
-            <img class="rounded-circle" src="img/water.png" alt="Generic placeholder image" width="140" height="140">
-            <h2>Санкт-Петербург</h2>
-            <p>Основным направлением работы офиса в Санкт-Петербурге является организация импортных поставок консервированных овощей и фруктов на территорию РФ со стран Европы, Латинской Америки и Юго-восточной Азии.</p>
-          </div><!-- /.col-lg-4 -->
-          <div class="col-lg-4">
-            <img class="rounded-circle" src="img/sun.png" alt="Generic placeholder image" width="140" height="140">
-            <h2>Краснодар</h2>
-            <p>Краснодарский офис занимается организацией поставок продукции в фермерские хозяйства в период проведения посевных и уборочных работ в Южном Федеральном округе, а также дальнейшей поставкой сырья на перерабатывающие заводы предприятия.</p>
-          </div><!-- /.col-lg-4 -->
-        </div><!-- /.row -->
+<div class="container">
+<h2><span class="featurette-heading">КАТАЛОГ</span></h2>
+<div class="row">
+  <div class="col">
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="img/splash_fon/vegitables.jpg" alt="Image cap [100%x180]" style="height: 180px; width: 100%; display: block;" data-holder-rendered="true">
+            <div class="card-body">
+              <p class="card-text">Овощная консервация</p>
+              <a href="canned_vegetables.html?id=1" class="btn btn-primary">Перейти</a>
+            </div>
+          </div>
+  </div>
+  <div class="col">
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="img/splash_fon/canned_meat.jpg" alt="Image cap [100%x180]" style="height: 180px; width: 100%; display: block;" data-holder-rendered="true">
+            <div class="card-body">
+              <p class="card-text">Тушеное мясо</p>
+              <a href="canned_meat.html?id=3" class="btn btn-primary">Перейти</a>
+            </div>
+          </div>
+  </div>
+  <div class="col">
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="img/splash_fon/condensed_milk.jpg" alt="Image cap [100%x180]" style="height: 180px; width: 100%; display: block;" data-holder-rendered="true">
+            <div class="card-body">
+              <p class="card-text">Сгущенное молоко</p>
+              <a href="condensed_milk.html?id=2" class="btn btn-primary">Перейти</a>
+            </div>
+          </div>
+  </div>
+  <div class="col">
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="img/splash_fon/cheese_butter.jpg" alt="Image cap [100%x180]" style="height: 180px; width: 100%; display: block;" data-holder-rendered="true">
+            <div class="card-body">
+              <p class="card-text">Сыры, масло, обезжиренное молоко</p>
+              <a href="cheese_butter.html?id=4" class="btn btn-primary">Перейти</a>
+            </div>
+          </div>
+  </div>  
+</div>  
+</div>
 <?php if(!empty($_COOKIE['username'])) {?>
 <form enctype="multipart/form-data" method="POST" id = "insertTovar" action="setTovar.php" class="white-popup-block mfp-hide">
   <div class="popup__inner">
@@ -135,6 +142,7 @@
         </select>
       </div>
     </div>
+
    <div class="form-group row">
   <label for="picture" class="col-4 col-form-label">Добавить изображение 1Mb</label>
     <div class="col-8">
