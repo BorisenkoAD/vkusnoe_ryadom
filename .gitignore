@@ -2,6 +2,8 @@
 /dist/
 /.git/
 /app/css/
+/app/libs/
+/app/conectdb.php
 /**/_backstage
 /**/Thumbs.db
 /**/*.DS_Store

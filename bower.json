@@ -1,0 +1,17 @@
+{
+  "name": "optimizedhtml",
+  "description": "OptimizedHTML 4 - Start HTML Template",
+  "main": "index.js",
+  "authors": [
+    "BorisenkoAD <paz001@yandex.ru>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/BorisenkoAD/vkusnoe_ryadom",
+  "dependencies": {
+    "bootstrap": "^4.0.0",
+    "font-awesome": "^5.0.6",
+    "holderjs": "holder.js#^2.9.4",
+    "parallax.js": "^1.5.0",
+    "popper.js": "^1.12.9"
+  }
+}
