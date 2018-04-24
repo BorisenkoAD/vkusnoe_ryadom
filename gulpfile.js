@@ -130,15 +130,18 @@ gulp.task('rsync', function() {
 	return gulp.src('dist/**')
 	.pipe(rsync({
 		root: 'dist/',
-		hostname: 'username@yousite.com',
-		destination: 'yousite/public_html/',
+		hostname: 'root@77.244.220.168', //'https://vkusnoe-ryadom.ru',
+		destination: '/var/www/vkusnoe-ryadom.ru/public_html/',
 		// include: ['*.htaccess'], // Скрытые файлы, которые необходимо включить в деплой
+		chmod: "ugo=rwX",
 		recursive: true,
 		archive: true,
 		silent: false,
+		port: 873,
 		compress: true
 	}));
 });
+
 gulp.task('removedist', function() { return del.sync('dist'); });
 gulp.task('clearcache', function () { return cache.clearAll(); });
 
